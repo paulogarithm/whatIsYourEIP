@@ -40,6 +40,10 @@ function getEIPProjectIDFromName(fullNameAndCity, callback) {
 }
 
 function onLoad() {
+    const alreadyHere = document.querySelector(".whatIsYourEIP");
+    if (alreadyHere)
+        return;
+
     const targetDiv = document.querySelector(".nk-block-between.flex-column.flex-md-row");
     if (!targetDiv)
         return;
@@ -47,6 +51,7 @@ function onLoad() {
     const container = document.createElement("div");
     container.style.position = "relative";
     container.style.display = "inline-block";
+    container.className = "whatIsYourEIP";
 
     const userInput = document.createElement("input");
     userInput.placeholder = "Student Name";
@@ -102,6 +107,34 @@ function onLoad() {
         targetDiv.appendChild(container);
     }
 }
-setTimeout(onLoad, 100);
+// setTimeout(onLoad, 100);
 
-document.addEventListener("DOMContentLoaded", onLoad);
+// document.addEventListener("DOMContentLoaded", () => {
+//     console.log("test1")
+// });
+
+window.addEventListener("load", () => {
+    setTimeout(onLoad, 100);
+});
+
+// window.addEventListener("popstate", () => {
+//     console.log("test3")
+// }); 
+
+// window.addEventListener("hashchange", () => {
+//     console.log("test4")
+// });
+
+window.addEventListener("click", () => {
+    setTimeout(onLoad, 100);
+});
+
+// const observer = new MutationObserver(() => {
+//     onLoad();  // Call onLoad every time there's a mutation in the DOM
+// });
+
+// // Observe changes in the document's body (or any other parent element)
+// observer.observe(document.body, {
+//     childList: true,  // Observe direct children added or removed
+//     subtree: true     // Observe descendants as well
+// });
