@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "What Is Your EIP ?",
+    "version": "1.42",
+    "permissions": [
+        "webRequest",
+        "activeTab",
+        "storage",
+        "activeTab"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "host_permissions": [
+        "https://eip.epitech.eu/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://eip.epitech.eu/projects*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}
